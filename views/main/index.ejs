@@ -1,6 +1,11 @@
 <h2>Home</h2>
 
-<a href="/auth/signup">Signup</a>
-<a href="/auth/login">Login</a>
-<a href="/auth/logout">Logout</a>
-<a href="/profile">Profile</a>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/auth/login">Login <span class="material-icons">&#xe0da;</span></a>
+  <a href="/auth/signup">Sign up <span class="fa fa-cog fa-spin"></span></a>
+  <a href="/auth/logout">Logout</a>
+  <a href="/profile">Profile <span class="glyphicon">&#xe008;</span></a>
+  <a href="/main/recipesearch"> recipe <span class="glyphicon">&#xe003;</span></a>
+</div>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>

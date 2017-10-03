@@ -11,7 +11,7 @@ var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
 
 app.set('view engine', 'ejs');
-
+app.use(express.static(__dirname + '/public'));
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ejsLayouts);
@@ -54,16 +54,44 @@ app.get('/', function(req, res) {
   res.render('main/index');
 });
 
+
+
+app.get('/main/recipesearch', function(req, res) {
+  res.render('main/recipesearch');
+});
+
+app.get('/search/:recipe', function(req, res) {
+  var url = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&';
+
+  request({
+    url: url,
+    qs: {
+      limit: 20,
+      api_key: 'dc6zaTOxFJmzC',
+      q: req.params.foo
+    },
+    json: true
+  }, function(error, response, body) {
+
+    res.render('main/recipesearch', {data: body.data});
+  });
+});
+
+
 //will only let the ppl who are signed in see
 app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
 
-app.get('/recipes', isLoggedIn, function(req, res) {
+app.get('/recipes', function(req, res) {
   res.render('recipes');
 });
 
-app.get('/main/grocery', function(req, res) {
+app.get('/main/favorites', isLoggedIn, function(req, res) {
+  res.render('main/favorites');
+});
+
+app.get('/main/grocery', isLoggedIn, function(req, res) {
   res.render('main/grocery');
 });
 
