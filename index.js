@@ -76,22 +76,6 @@ app.post('/recipes', function(req, res) {
 app.get('/recipes', function(req, res) {
   res.render('main/recipesearch');
 });
-// app.get('/search/:recipe', function(req, res) {
-//   var url = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&';
-//
-//   request({
-//     url: url,
-//     qs: {
-//       limit: 20,
-//       api_key: 'dc6zaTOxFJmzC',
-//       q: req.params.foo
-//     },
-//     json: true
-//   }, function(error, response, body) {
-//
-//     res.render('main/recipesearch', {data: body.data});
-//   });
-// });
 
 
 //will only let the ppl who are signed in see

@@ -27,3 +27,17 @@ Express authentication app using an api + Passport + flash messages + custom mid
       * if (!error && response.statusCode == 200) {
       *  var data = JSON.parse(body);
     *   res.send(data.results[0]);
+
+###### figuring out backend database and tables
+* createdb recipeSIP
+
+* sequelize model:create --name user --attributes name:string,email:text,password:text
+
+* sequelize model:create --name favorite --attributes name:string,ingredient:text,url:string
+
+* sequelize model:create --name userFav --attributes userId:integer,favoriteId:integer
+
+
+* sequelize db:migrate
+
+* “””””Note to find exact recipe, will have to find by match url””””
