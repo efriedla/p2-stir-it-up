@@ -12,12 +12,8 @@
 
 <div>
   <% recipes.forEach(function(food) { %>
-     <div class="well">
-       <h2><%= food.title %></h2>
-       <form method="POST" action="/">
-         <input hidden type="text" name="name" value="<%= food.title %>">
-         
-       </form>
-     </div>
+
+       <li><a class="food" href="/recipes"><%= food.title %></a></li>
+       <a href="/recipes"><img src= "<%= food.thumbnail %>" alt="foodPic"></a>
    <% }); %>
 </div>
