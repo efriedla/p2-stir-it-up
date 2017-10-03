@@ -2,6 +2,7 @@ require('dotenv').config();
 var express = require('express');
 var ejsLayouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
+var request = require('request');
 
 var app = express();
 
@@ -60,22 +61,35 @@ app.get('/main/recipesearch', function(req, res) {
   res.render('main/recipesearch');
 });
 
-app.get('/search/:recipe', function(req, res) {
-  var url = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&';
 
-  request({
-    url: url,
-    qs: {
-      limit: 20,
-      api_key: 'dc6zaTOxFJmzC',
-      q: req.params.foo
-    },
-    json: true
-  }, function(error, response, body) {
+app.get('/data', function(req, res) {
+  request('http://www.recipepuppy.com/api/', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var data = JSON.parse(body);
 
-    res.render('main/recipesearch', {data: body.data});
+     res.send(data.results[0]);
+     //res.render('main/recipesearch', {data: data.results});
+    //  res.send(body);
+    }
   });
 });
+
+// app.get('/search/:recipe', function(req, res) {
+//   var url = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&';
+//
+//   request({
+//     url: url,
+//     qs: {
+//       limit: 20,
+//       api_key: 'dc6zaTOxFJmzC',
+//       q: req.params.foo
+//     },
+//     json: true
+//   }, function(error, response, body) {
+//
+//     res.render('main/recipesearch', {data: body.data});
+//   });
+// });
 
 
 //will only let the ppl who are signed in see
