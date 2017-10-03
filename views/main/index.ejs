@@ -9,3 +9,15 @@
   <a href="/main/recipesearch"> recipe <span class="glyphicon">&#xe003;</span></a>
 </div>
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+<div>
+  <% recipes.forEach(function(food) { %>
+     <div class="well">
+       <h2><%= food.title %></h2>
+       <form method="POST" action="/">
+         <input hidden type="text" name="name" value="<%= food.title %>">
+         
+       </form>
+     </div>
+   <% }); %>
+</div>

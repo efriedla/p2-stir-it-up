@@ -51,9 +51,9 @@ var passport = require('./config/ppConfig');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', function(req, res) {
-  res.render('main/index');
-});
+// app.get('/', function(req, res) {
+//   res.render('main/index');
+// });
 
 
 
@@ -62,16 +62,24 @@ app.get('/main/recipesearch', function(req, res) {
 });
 
 
-app.get('/data', function(req, res) {
-  request('http://www.recipepuppy.com/api/', function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      var data = JSON.parse(body);
+app.get('/', function(req, res) {
+  var recipepuppyUrl = 'http://www.recipepuppy.com/api/'
 
-     res.send(data.results[0]);
+  request(recipepuppyUrl, function(error, response, body){
+    console.log('ssjkfdjslfjwkfjwj');
+    var recipes = JSON.parse(body).results;
+    res.render('main/index', {recipes: recipes});
+
+  });
+  // request('http://www.recipepuppy.com/api/', function (error, response, body) {
+  //   if (!error && response.statusCode == 200) {
+  //     var data = JSON.parse(body);
+  //
+  //    res.send(data.results[0]);
      //res.render('main/recipesearch', {data: data.results});
     //  res.send(body);
-    }
-  });
+  //  }
+//  });
 });
 
 // app.get('/search/:recipe', function(req, res) {

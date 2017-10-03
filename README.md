@@ -17,3 +17,13 @@ Express authentication app using an api + Passport + flash messages + custom mid
       i : comma delimited ingredients
       q : normal search query
       p : page
+
+#### Day two
+
+* started working with api
+  * start process of adding api data to recipes to pull title and ingredients
+  * app.get('/data', function(req, res) {
+    * request('http://www.recipepuppy.com/api/', function  (error, response, body) {
+      * if (!error && response.statusCode == 200) {
+      *  var data = JSON.parse(body);
+    *   res.send(data.results[0]);
