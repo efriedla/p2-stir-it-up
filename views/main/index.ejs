@@ -9,11 +9,4 @@
   <a href="/main/recipesearch"> recipe <span class="glyphicon">&#xe003;</span></a>
 </div>
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
-
-<div>
-  <% recipes.forEach(function(food) { %>
-
-       <li><a class="food" href="/recipes"><%= food.title %></a></li>
-       <a href="/recipes"><img src= "<%= food.thumbnail %>" alt="foodPic"></a>
-   <% }); %>
-</div>
+<a href="/recipes"><h1>Recipes</h1></a>

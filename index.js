@@ -51,9 +51,9 @@ var passport = require('./config/ppConfig');
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.get('/', function(req, res) {
-//   res.render('main/index');
-// });
+app.get('/', function(req, res) {
+  res.render('main/index');
+});
 
 
 
@@ -61,27 +61,21 @@ app.get('/main/recipesearch', function(req, res) {
   res.render('main/recipesearch');
 });
 
-
-app.get('/', function(req, res) {
-  var recipepuppyUrl = 'http://www.recipepuppy.com/api/'
-
+app.post('/recipes', function(req, res) {
+  var query = req.body.q;
+  var recipepuppyUrl = "http://www.recipepuppy.com/api/?";
+  recipepuppyUrl = recipepuppyUrl + "q=" + query;
+  console.log(recipepuppyUrl);
   request(recipepuppyUrl, function(error, response, body){
-    console.log('ssjkfdjslfjwkfjwj');
     var recipes = JSON.parse(body).results;
-    res.render('main/index', {recipes: recipes});
+    res.render('recipes', {recipes: recipes});
 
   });
-  // request('http://www.recipepuppy.com/api/', function (error, response, body) {
-  //   if (!error && response.statusCode == 200) {
-  //     var data = JSON.parse(body);
-  //
-  //    res.send(data.results[0]);
-     //res.render('main/recipesearch', {data: data.results});
-    //  res.send(body);
-  //  }
-//  });
 });
 
+app.get('/recipes', function(req, res) {
+  res.render('main/recipesearch');
+});
 // app.get('/search/:recipe', function(req, res) {
 //   var url = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&';
 //
@@ -105,9 +99,9 @@ app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
 
-app.get('/recipes', function(req, res) {
-  res.render('recipes');
-});
+// app.get('/recipes', function(req, res) {
+//   res.render('recipes');
+// });
 
 app.get('/main/favorites', isLoggedIn, function(req, res) {
   res.render('main/favorites');

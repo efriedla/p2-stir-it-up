@@ -1,5 +1,10 @@
 <h2>Recipes</h2>
-<ul>
-  <li>
-  </li>
-</ul>
+<div>
+  <% recipes.forEach(function(food) { %>
+
+       <h3><a class="food"><%= food.title %></a></h3>
+       <a ><img src= "<%= food.thumbnail %>" alt="foodPic"></a>
+  <h3>Ingredients</h3>
+       <li><a class="food"><%= food.ingredients %></a></li>
+   <% }); %>
+</div>
