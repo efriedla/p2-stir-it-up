@@ -15,9 +15,9 @@ h2{
   color: #FFD700;
   text-shadow: 2px 2px black;
 }
-#title{
-  color: red;
-  /*color: #FF2300;*/
+.title{
+
+  color: #FF2300;*/
   /*font-family: 'Playfair Display', serif;
   text-align: center;
   margin-top: -1%;

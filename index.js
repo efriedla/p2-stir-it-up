@@ -67,6 +67,15 @@ app.post('/recipes', function(req, res) {
   });
 });
 
+app.get('/recipes/:index', function(req, res) {
+    var index = parseInt(req.params.index);
+    if (index < articles.length && index >= 0) {
+        res.render('articles/show', { article: articles[req.params.index] });
+    } else {
+        res.send('Error');
+    }
+});
+
 app.get('/recipes', function(req, res) {
   res.render('main/recipesearch');
 });
