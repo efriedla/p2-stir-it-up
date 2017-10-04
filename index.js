@@ -90,8 +90,8 @@ app.get('/profile', isLoggedIn, function(req, res) {
 //   res.render('recipes');
 // });
 
-app.get('/main/favorites', isLoggedIn, function(req, res) {
-  res.render('main/favorites');
+app.get('/favorite/show', isLoggedIn, function(req, res) {
+  res.render('favorite/show');
 });
 
 app.get('/main/grocery', isLoggedIn, function(req, res) {
