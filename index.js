@@ -3,6 +3,7 @@ var express = require('express');
 var ejsLayouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
 var request = require('request');
+var db = require('./models')
 
 var app = express();
 
@@ -16,26 +17,13 @@ app.use(express.static(__dirname + '/public'));
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ejsLayouts);
-/*
- * setup the session with the following:
- *
- * secret: A string used to "sign" the session ID cookie, which makes it unique
- * from application to application. We'll hide this in the environment
- *
- * resave: Save the session even if it wasn't modified. We'll set this to false
- *
- * saveUninitialized: If a session is new, but hasn't been changed, save it.
- * We'll set this to true.
- */
+
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }));
-/*
- * Include the flash module by calling it within app.use().
- * IMPORTANT: This MUST go after the session module
- */
+
 app.use(flash());
 
 app.use(function(req, res, next) {
@@ -97,6 +85,7 @@ app.get('/main/grocery', isLoggedIn, function(req, res) {
 
 
 app.use('/auth', require('./controllers/auth'));
+//app.use('/main', require('./controllers/favorites'));
 
 var server = app.listen(process.env.PORT || 3000);
 
