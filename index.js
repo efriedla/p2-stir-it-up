@@ -4,6 +4,7 @@ var ejsLayouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
 var request = require('request');
 var db = require('./models')
+var moment = require('moment');
 
 var app = express();
 
@@ -33,6 +34,11 @@ app.use(function(req, res, next) {
   next();
 });
 
+// middleware that allows us to access the 'moment' library in every EJS view
+app.use(function(req, res, next) {
+  res.locals.moment = moment;
+  next();
+});
 //these three lines must occur after the session the notes are liers
 var passport = require('./config/ppConfig');
 // initialize the passport configuration and session as middleware
@@ -86,7 +92,8 @@ app.get('/main/grocery', isLoggedIn, function(req, res) {
 
 app.use('/auth', require('./controllers/auth'));
 // app.use('/main/favorites', require('./controllers/favorites'));
-
+//this is how we separate our routes into separate files
+//app.use('/recipes', require('./controllers/favorites'));
 var server = app.listen(process.env.PORT || 3000);
 
 module.exports = server;
