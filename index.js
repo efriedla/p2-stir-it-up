@@ -85,7 +85,7 @@ app.get('/main/grocery', isLoggedIn, function(req, res) {
 
 
 app.use('/auth', require('./controllers/auth'));
-//app.use('/main', require('./controllers/favorites'));
+// app.use('/main/favorites', require('./controllers/favorites'));
 
 var server = app.listen(process.env.PORT || 3000);
 

@@ -6,5 +6,12 @@
        <a ><img src= "<%= food.thumbnail %>" alt="foodPic"></a>
   <h3>Ingredients</h3>
        <li><a class="food"><%= food.ingredients %></a></li>
+
+       <form method="POST" action="/favorites">
+               <input hidden type="text" name="name" value="<%= food.title %>">
+               <button class="btn btn-primary" type="submit">
+                 Add "<%= food.title %>" to My Favorites!
+               </button>
+       </form>
    <% }); %>
 </div>
