@@ -12,7 +12,7 @@
                   <p class="lead card-text text-shadow text-white w-50 d-none d-lg-block"><%= food.ingredients %></p>
                   <a href="#" class="btn btn-secondary">Read More</a>
 
-                  <form method="POST" action="/recipe">
+                  <form method="POST" action="/favorite/recipe">
                     <input type="hidden" name="title" value=<%= food.title %> />
                       <input type="hidden" name="href" value=<%= food.href %> />
                       <input type="hidden" name="ingredients" value=<%= food.ingredients %> />

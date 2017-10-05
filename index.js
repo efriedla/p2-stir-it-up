@@ -56,14 +56,14 @@ app.get('/main/recipesearch', function(req, res) {
 });
 
 //request info from api via search
-app.post('/recipes', function(req, res) {
+app.post('/favorite/recipes', function(req, res) {
   var query = req.body.q;
   var recipepuppyUrl = "http://www.recipepuppy.com/api/?";
   recipepuppyUrl = recipepuppyUrl + "q=" + query;
   console.log(recipepuppyUrl);
   request(recipepuppyUrl, function(error, response, body){
     var recipes = JSON.parse(body).results;
-    res.render('recipes', {recipes: recipes});
+    res.render('favorite/recipes', {recipes: recipes});
 
   });
   //will post to database

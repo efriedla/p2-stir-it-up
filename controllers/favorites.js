@@ -11,7 +11,7 @@ var db = require('../models');
 //     });
 // });
 
-router.post('/recipes', function(req, res) {
+router.post('/favorite/recipes', function(req, res) {
   var query = req.body.q;
   var recipepuppyUrl = "http://www.recipepuppy.com/api/?";
   recipepuppyUrl = recipepuppyUrl + "q=" + query;
