@@ -1,6 +1,6 @@
 <h2>Favorite Recipes</h2>
 
-<h1>recipe title</h1>
+<h3>recipe title</h3>
 
 <ul class="title">
   <li>recipe ingredients</li>
@@ -8,7 +8,7 @@
 </ul>
 <% recipe.forEach(function(food) { %>
 <div class="well">
-    <h2><a href="/favorite/<%= food.title %>"><%= food.title %></a>
+    <h2><a href="/favorite/show<%= food.id %>"><%= food.title %></a>
     <small><%= food.ingredients %></small>
     <!-- <small><%= item.userId %></small> -->
 

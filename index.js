@@ -66,6 +66,16 @@ app.post('/recipes', function(req, res) {
     res.render('recipes', {recipes: recipes});
 
   });
+  //will post to database
+  db.favorite.findAll().then(function(fav){});
+//find or create
+db.favorite.findOrCreate({
+  where: {name: 'Ginger Champagne',
+        },
+        defaults: {url: 'http://allrecipes.com/Recipe/Ginger-Champagne/Detail.aspx'}
+}).spread(function(fav, created) {
+  console.log(fav);
+});
 });
 
 
@@ -101,7 +111,7 @@ app.get('/main/grocery', isLoggedIn, function(req, res) {
 app.use('/auth', require('./controllers/auth'));
 // app.use('/favorites', require('./controllers/favorites'));
 //this is how we separate our routes into separate files
-app.use('/favorites', require('./controllers/favorites'));
+app.use('/favorite', require('./controllers/favorites'));
 var server = app.listen(process.env.PORT || 3000);
 
 module.exports = server;

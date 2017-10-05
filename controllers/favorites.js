@@ -3,12 +3,34 @@ var request = require('request');
 var router = express.Router();
 var db = require('../models');
 
-router.get('/recipes', function(req, res) {
-    //get everything from pockemon db and render favotites page.
-    db.favorite.findAll({
-    }).then(function(recipes){
-      res.render('favorite/show', { recipes: recipes });
-    });
+// router.get('/recipes', function(req, res) {
+//     //get everything from pockemon db and render favotites page.
+//     db.favorite.findAll({
+//     }).then(function(recipes){
+//       res.render('favorite/show', { recipes: recipes });
+//     });
+// });
+
+router.post('/recipes', function(req, res) {
+  var query = req.body.q;
+  var recipepuppyUrl = "http://www.recipepuppy.com/api/?";
+  recipepuppyUrl = recipepuppyUrl + "q=" + query;
+  console.log(recipepuppyUrl);
+  request(recipepuppyUrl, function(error, response, body){
+    var recipes = JSON.parse(body).results;
+    res.render('recipes', {recipes: recipes});
+
+  });
+//  will post to database
+  db.favorite.findAll().then(function(fav){});
+//find or create
+db.favorite.findOrCreate({
+  where: {name: 'Ginger Champagne',
+        },
+        defaults: {url: 'http://allrecipes.com/Recipe/Ginger-Champagne/Detail.aspx'}
+}).spread(function(fav, created) {
+  console.log(fav);
+});
 });
 
 // // POST - receive the name of a recipe and add it to the database
@@ -39,24 +61,27 @@ router.get('/recipes', function(req, res) {
 //
 // });
 
+
 // POST /projects - create a new project
-router.post('/favorite/show', function(req, res) {
-    db.recipe.create({
+router.post('/recipes', function(req, res) {
+    console.log('in the favorites show post route #######');
+    db.favorite.findorcreate({
+
         title: req.body.title,
         url: req.body.href,
         ingredient: req.body.ingredients
-    }).then(function(newProject) {
+    }).spread(function(newFavorite) {
         var recipe = [];
         if (req.body.food) {
             recipes = req.body.food.split(",");
         }
-        if (categories.length > 0) {
+        if (favories.length > 0) {
             async.forEachSeries(recipes, function(recipe, callback) {
-                //functions that runs for each category
+                //functions that runs for each recipe
 
                 // 2. insert one or many categories for this one project
                 db.food.findOrCreate({
-                    where: { name: food.trim() }
+                    where: { title: food.trim() }
                 }).spread(function(recipe, wasCreated) {
                     // add the info into the join table
 
@@ -66,13 +91,14 @@ router.post('/favorite/show', function(req, res) {
                 });
             }, function() {
                 //runs when everything is done
-                res.redirect("/favorite/show");
+                res.redirect("/recipes");
             });
         } else {
             res.redirect("/recipes");
         }
     }).catch(function(error) {
         res.status(400).render('main/404');
+        console.log("nooooo");
     });
 });
 
