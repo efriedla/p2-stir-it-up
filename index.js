@@ -55,26 +55,20 @@ app.get('/main/recipesearch', function(req, res) {
   res.render('main/recipesearch');
 });
 
+//request info from api via search
 app.post('/recipes', function(req, res) {
   var query = req.body.q;
   var recipepuppyUrl = "http://www.recipepuppy.com/api/?";
   recipepuppyUrl = recipepuppyUrl + "q=" + query;
   console.log(recipepuppyUrl);
   request(recipepuppyUrl, function(error, response, body){
-    var recipes = JSON.parse(body).results;
-    res.render('recipes', {recipes: recipes});
+    var Myrecipes = JSON.parse(body).results;
+    res.render('recipes', {recipes: Myrecipes});
 
   });
 });
 
-app.get('/recipes/:index', function(req, res) {
-    var index = parseInt(req.params.index);
-    if (index < articles.length && index >= 0) {
-        res.render('articles/show', { article: articles[req.params.index] });
-    } else {
-        res.send('Error');
-    }
-});
+
 
 app.get('/recipes', function(req, res) {
   res.render('main/recipesearch');
@@ -98,11 +92,15 @@ app.get('/main/grocery', isLoggedIn, function(req, res) {
   res.render('main/grocery');
 });
 
+// app.get('/favorite/show', isLoggedIn, function(req, res) {
+//   res.render('favorite/show');
+// });
+
 
 app.use('/auth', require('./controllers/auth'));
-// app.use('/main/favorites', require('./controllers/favorites'));
+// app.use('/favorites', require('./controllers/favorites'));
 //this is how we separate our routes into separate files
-//app.use('/recipes', require('./controllers/favorites'));
+app.use('/favorites', require('./controllers/favorites'));
 var server = app.listen(process.env.PORT || 3000);
 
 module.exports = server;

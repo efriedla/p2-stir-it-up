@@ -7,11 +7,11 @@
   <h3>Ingredients</h3>
        <li><a class="food"><%= food.ingredients %></a></li>
 
-       <form method="POST" action="/favorite/show">
-               <input hidden type="text" id="recipe" name="food" value="<%= food.title %>">
-               <button class="btn btn-primary" type="submit">
-                 Add "<%= food.title %>" to My Favorites!
-               </button>
+       <form method="POST" action="/recipes">
+         <input hidden type="text" id="recipe" name="food" value="<%= food.title %>">
+         <button class="btn btn-primary" type="submit">
+           Add "<%= food.title %>" to My Favorites!
+         </button>
        </form>
    <% }); %>
 </div>
