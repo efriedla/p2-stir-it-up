@@ -15,9 +15,9 @@ h2{
   color: #FFD700;
   text-shadow: 2px 2px black;
 }
-.title{
+.food{
 
-  color: #FF2300;*/
+  color: #FF2300;
   /*font-family: 'Playfair Display', serif;
   text-align: center;
   margin-top: -1%;
@@ -73,11 +73,12 @@ h2{
 /*test*/
 body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  background: url("/img/salad-table.jpeg") no-repeat center center fixed;
+  background: url("/img/happy-plate.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+
 
 }
 
@@ -92,20 +93,30 @@ h1 {
 }
 
 .tagline-upper {
-  font-size: 5rem;
-  font-weight: 700;
+  font-size: 6rem;
+  font-weight: 750;
   line-height: 1;
   margin-top: 8px;
   margin-bottom: 3px;
- text-shadow: 2px 2px black;
+ text-shadow: 4px 4px 3px black;
+ color: #FFD700;
+}
+.tagline-upper:hover {
+  margin-bottom: 3px;
+ text-shadow: 2px 2px 3px black;
+ color: #FF2300;
 }
 
 .tagline-lower {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   line-height: 1;
   margin-bottom:8px;
-text-shadow: 2px 2px black;
+  font-weight: 750;
+  text-shadow: 4px 4px 3px black;
+  color: white;
+
 }
+
 
 .text-expanded {
   letter-spacing: 5px;
