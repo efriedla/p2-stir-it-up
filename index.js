@@ -95,7 +95,7 @@ app.get('/profile', isLoggedIn, function(req, res) {
 // });
 
 //must make function to show on page, function that grabs userId
-app.get('/favorite/show', isLoggedIn, function(req, res) {
+app.get('/favorite', isLoggedIn, function(req, res) {
   res.render('favorite/show', {recipes: recipes});
 });
 

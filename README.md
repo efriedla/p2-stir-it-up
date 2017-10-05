@@ -49,3 +49,7 @@ Express authentication app using an api + Passport + flash messages + custom mid
   * worked on add to fav button "had a bug there where it kept wanting to get not post"
   * next step is to post to favorites table
   * then show on favorites page as user's favorites
+
+#### Day Four
+
+  * adding to the database
