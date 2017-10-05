@@ -75,12 +75,15 @@ body {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+
 }
 
 h1, h2, h3, h4, h5, h6, .text-heading {
   font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
+ul{
+  list-style-type: none;
+}
 h1 {
   font-size: 4rem;
 }
@@ -89,15 +92,24 @@ h1 {
   font-size: 5rem;
   font-weight: 700;
   line-height: 1;
+  margin-top: 8px;
+  margin-bottom: 3px;
+ text-shadow: 2px 2px black;
 }
 
 .tagline-lower {
   font-size: 1.2rem;
   line-height: 1;
+  margin-bottom:8px;
+text-shadow: 2px 2px black;
 }
 
 .text-expanded {
-  letter-spacing: 2px;
+  letter-spacing: 5px;
+  margin-left: 26px;
+  margin-right: 16px;
+
+
 }
 
 .text-shadow {

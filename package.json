@@ -38,6 +38,7 @@
     "pg-hstore": "^2.3.2",
     "request": "^2.83.0",
     "response": "^0.18.0",
-    "sequelize": "^3.30.4"
+    "sequelize": "^3.30.4",
+    "startbootstrap-business-casual": "^4.0.0-alpha"
   }
 }
