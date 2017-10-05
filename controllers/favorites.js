@@ -84,7 +84,7 @@ router.post('/', function(req, res) {
         if (req.body.food) {
             recipes = req.body.food.split(",");
         }
-        if (favories.length > 0) {
+        if (favorie.length > 0) {
             async.forEachSeries(recipes, function(recipe, callback) {
                 //functions that runs for each recipe
 
@@ -100,10 +100,10 @@ router.post('/', function(req, res) {
                 });
             }, function() {
                 //runs when everything is done
-                res.redirect("/");
+                res.redirect("/favorite/recipes");
             });
         } else {
-            res.redirect("/");
+            res.redirect("/favorite/recipes");
         }
     }).catch(function(error) {
         res.status(400).render('main/404');
