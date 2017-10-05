@@ -76,9 +76,9 @@ router.post('/', function(req, res) {
 
     db.favorite.findOrCreate({
 
-        name: req.body.name,
-        url: req.body.url,
-        ingredient: req.body.ingredients
+  where:  {name: req.body.name,
+    url: req.body.url,
+    ingredient: req.body.ingredient}
     }).spread(function(newFavorite) {
         var recipe = [];
         if (req.body.food) {
@@ -100,10 +100,10 @@ router.post('/', function(req, res) {
                 });
             }, function() {
                 //runs when everything is done
-                res.redirect("/recipes");
+                res.redirect("/");
             });
         } else {
-            res.redirect("/recipes");
+            res.redirect("/");
         }
     }).catch(function(error) {
         res.status(400).render('main/404');
