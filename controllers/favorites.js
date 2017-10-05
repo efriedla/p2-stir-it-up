@@ -11,27 +11,27 @@ var db = require('../models');
 //     });
 // });
 
-router.post('/favorite/recipes', function(req, res) {
-  var query = req.body.q;
-  var recipepuppyUrl = "http://www.recipepuppy.com/api/?";
-  recipepuppyUrl = recipepuppyUrl + "q=" + query;
-  console.log(recipepuppyUrl);
-  request(recipepuppyUrl, function(error, response, body){
-    var recipes = JSON.parse(body).results;
-    res.render('recipes', {recipes: recipes});
-
-  });
-//  will post to database
-  db.favorite.findAll().then(function(fav){});
-//find or create
-db.favorite.findOrCreate({
-  where: {name: 'Ginger Champagne',
-        },
-        defaults: {url: 'http://allrecipes.com/Recipe/Ginger-Champagne/Detail.aspx'}
-}).spread(function(fav, created) {
-  console.log(fav);
-});
-});
+// router.post('/favorite/recipes', function(req, res) {
+//   var query = req.body.q;
+//   var recipepuppyUrl = "http://www.recipepuppy.com/api/?";
+//   recipepuppyUrl = recipepuppyUrl + "q=" + query;
+//   console.log(recipepuppyUrl);
+//   request(recipepuppyUrl, function(error, response, body){
+//     var recipes = JSON.parse(body).results;
+//     res.render('recipes', {recipes: recipes});
+//
+//   });
+// //  will post to database
+//   db.favorite.findAll().then(function(fav){});
+// //find or create
+// db.favorite.findOrCreate({
+//   where: {name: 'Ginger Champagne',
+//         },
+//         defaults: {url: 'http://allrecipes.com/Recipe/Ginger-Champagne/Detail.aspx'}
+// }).spread(function(fav, created) {
+//   console.log(fav);
+// });
+// });
 
 // // POST - receive the name of a recipe and add it to the database
 // router.post('/favorites/show', function(req, res) {
@@ -61,14 +61,23 @@ db.favorite.findOrCreate({
 //
 // });
 
-
+// db.post('/recipes', function(req, res) {
+//
+//     var name = req.body.name;
+//     var url= req.body.url;
+//     User.addFavorite(name, url, function(err, user) {
+//         if (err) throw err;
+//         res.redirect('/');
+//     });
+// });
 // POST /projects - create a new project
-router.post('/recipes', function(req, res) {
+router.post('/', function(req, res) {
     console.log('in the favorites show post route #######');
-    db.favorite.findorcreate({
 
-        title: req.body.title,
-        url: req.body.href,
+    db.favorite.findOrCreate({
+
+        name: req.body.name,
+        url: req.body.url,
         ingredient: req.body.ingredients
     }).spread(function(newFavorite) {
         var recipe = [];
@@ -101,5 +110,8 @@ router.post('/recipes', function(req, res) {
         console.log("nooooo");
     });
 });
+router.get('/', function(req, res){
+  res.send("yayay")
+})
 
 module.exports = router;
