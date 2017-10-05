@@ -41,3 +41,11 @@ Express authentication app using an api + Passport + flash messages + custom mid
 * sequelize db:migrate
 
 * “””””Note to find exact recipe, will have to find by match url””””
+
+#### Day three
+
+* started working on favorites
+  * re-thought out routes to display favorites
+  * worked on add to fav button "had a bug there where it kept wanting to get not post"
+  * next step is to post to favorites table
+  * then show on favorites page as user's favorites
