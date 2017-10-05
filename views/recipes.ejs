@@ -2,22 +2,23 @@
 <div>
   <% recipes.forEach(function(food) { %>
 
-    
+
        <div class="bg-faded p-4 my-4">
               <div class="card card-inverse">
-                <img class="card-img img-fluid w-100" src="<%= food.thumbnail %>" alt="FoodPic">
+                <img class="card-img img-fluid " src="<%= food.thumbnail %>" alt="FoodPic">
                 <div class="card-img-overlay bg-overlay">
                   <h2 class="card-title text-shadow text-white text-uppercase mb-0"><%= food.title %></h2>
                   <h4 class="text-shadow text-white">Ingredients</h4>
                   <p class="lead card-text text-shadow text-white w-50 d-none d-lg-block"><%= food.ingredients %></p>
                   <a href="#" class="btn btn-secondary">Read More</a>
+                  <form method="POST" action="/recipes">
+                    <input hidden type="text" id="recipe" name="food" value="<%= food.title %>">
+                    <input class="btn btn-primary" type="submit" value="Add <%= food.title %> to My Favorites!">
+                  </form>
                 </div>
               </div>
             </div>
 
-       <form method="POST" action="/recipes">
-         <input hidden type="text" id="recipe" name="food" value="<%= food.title %>">
-         <input class="btn btn-primary" type="submit" value="Add <%= food.title %> to My Favorites!">
-       </form>
+
    <% }); %>
 </div>
