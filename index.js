@@ -62,8 +62,8 @@ app.post('/recipes', function(req, res) {
   recipepuppyUrl = recipepuppyUrl + "q=" + query;
   console.log(recipepuppyUrl);
   request(recipepuppyUrl, function(error, response, body){
-    var Myrecipes = JSON.parse(body).results;
-    res.render('recipes', {recipes: Myrecipes});
+    var recipes = JSON.parse(body).results;
+    res.render('recipes', {recipes: recipes});
 
   });
 });
@@ -84,8 +84,9 @@ app.get('/profile', isLoggedIn, function(req, res) {
 //   res.render('recipes');
 // });
 
+//must make function to show on page, function that grabs userId
 app.get('/favorite/show', isLoggedIn, function(req, res) {
-  res.render('favorite/show');
+  res.render('favorite/show', {recipes: recipes});
 });
 
 app.get('/main/grocery', isLoggedIn, function(req, res) {

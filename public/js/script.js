@@ -8,6 +8,7 @@ function closeNav() {
 }
 
 $('button').on('click', function(e) {
+  console.log("foooooooooooooooooooooo");
         e.preventDefault();
         var query = $('input').val();
         $('#display').empty();
