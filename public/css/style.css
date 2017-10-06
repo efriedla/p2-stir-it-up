@@ -67,7 +67,10 @@ h2{
 .text-white{
   color: white;
 }
-.sidenav{
+.profile, img{
+
+  max-width: 300px;
+  max-height: 300px;
 
 }
 /*test*/
@@ -99,12 +102,12 @@ h1 {
   margin-top: 8px;
   margin-bottom: 3px;
  text-shadow: 4px 4px 3px black;
- color: #FFD700;
+ color: #FF2300;
 }
 .tagline-upper:hover {
   margin-bottom: 3px;
  text-shadow: 2px 2px 3px black;
- color: #FF2300;
+
 }
 
 .tagline-lower {

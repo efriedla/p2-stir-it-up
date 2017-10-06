@@ -7,8 +7,10 @@
 <% recipes.forEach(function(recipes) { %>
    <div class="well">
      <h2><%= recipes.name %></h2>
-     <a class="delete" href = "/favorite/<%=recipes.name%>" type="sumbit">Delete</a>
-     <a class="details" href = "/favorite<%=recipes.url%>">Details</a>
+     <p><%= recipes.ingredient %></p>
+     <a class="details" href = "<%=recipes.url%>">Details </a>
+     <a class="delete food" href = "/favorite/<%=recipes.name%>" type="sumbit">Delete</a>
+
    </div>
 
  <% }); %>
@@ -21,14 +23,6 @@
 
 
 <script>
- // $('.delete-link').on('click', function(e){
- //     e.preventDefault();
- //    var deleteUrl =$(this).attr('deleteUrl');
- //    $.ajax({
- //      method: 'DELETE',
- //      url: deleteUrl
- //    });
- // });
 
 $('document').ready(function() {
     $('.delete').on('click', function(e) {
