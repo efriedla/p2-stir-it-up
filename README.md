@@ -57,4 +57,12 @@ Express authentication app using an api + Passport + flash messages + custom mid
   * going to leave that alone for now and work on showing all recipes in favs on favorite/showing
   * once there I will add the ability to edit page
   * from there I will make sure that each user has a private favorites
-  
+
+###### later that Day
+
+  * changed findOrCreate from favorite/show to favorite/addrecipe so that /show will show all recipes
+  * added details
+  * added function to delete but does not delete .... yet
+  * must change the favorite and user model from m:m to m:1 because one user can have many favorites not all combined into one.
+  * I will have to update my favorite model to include a userId
+  * or have the favorite model be most popular and create a new model that will be the users private favorites
