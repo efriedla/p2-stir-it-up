@@ -16,7 +16,7 @@ router.post('/', function(req, res) {
         //var arr = [];
 
           console.log(recipes.ingredient);
-      res.render('favorite/show', {recipes: recipes})
+      res.render('favorite/addrecipe', {recipes: recipes})
 
     })
 
@@ -27,11 +27,12 @@ router.post('/', function(req, res) {
 });
 
 // GET - return a page with favorites
-router.get('/show', function(req, res) {
+router.get('/', function(req, res) {
     //get everything from all
     db.favorite.findAll({
     }).then(function(recipes){
       res.render('favorite/show', { recipes: recipes });
+      console.log(recipes)
     });
 });
 
