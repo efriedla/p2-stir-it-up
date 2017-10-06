@@ -37,18 +37,45 @@ router.get('/', function(req, res) {
 });
 
 //deleting from favorites
-router.delete('/', function(req, res){
-  var recipeToDelete = req.params.pokemonName;
+// router.delete('/', function(req, res){
+//   var recipeToDelete = req.params.pokemonName;
+//   db.favorite.destroy({
+//     where:  {
+//       name: req.body.name,
+//       url: req.body.url,
+//       ingredient: req.body.ingredient
+//       }
+//   }).then(function(recipes){
+//     console.log('deleted', recipeToDelete);
+//     res.redirect('favorite/show');
+//   });
+// });
+router.delete("/:name", function(req, res){
+console.log("DESTROYYYYYYYYYYYYYYYYYYYYYYYY")
   db.favorite.destroy({
-    where:  {
-      name: req.body.name,
-      url: req.body.url,
-      ingredient: req.body.ingredient
-      }
+
+    where: {
+      name: req.params.name
+     //name: req.body.name,
+      // url: req.body.url,
+      //  ingredient: req.body.ingredient
+       }
   }).then(function(recipes){
-    console.log('deleted', recipeToDelete);
-    res.redirect('favorite/show');
-  });
+    console.log(recipes.ingredient);
+  res.redirect("/favorite");
+
+})
 });
+
+// //deleting from list
+// router.delete('/favorites', function(req, res){
+//   var toDelete = req.params.itemName;
+//   console.log('I am deleting this item: ', toDelete);
+//   db.favorite.destroy({
+//     where: {
+//       name: req.params.name,
+//     }
+//   });
+// });
 
 module.exports = router;

@@ -7,12 +7,12 @@
 <% recipes.forEach(function(recipes) { %>
    <div class="well">
      <h2><%= recipes.name %></h2>
-     <a class="delete-link" href = "/favorite" deleteUrl="/<%=recipes.name%>">Delete</a>
-     <a class="details-link" href = "<%=recipes.url%>">Details</a>
+     <a class="delete" href = "/favorite/<%=recipes.name%>" type="sumbit">Delete</a>
+     <a class="details" href = "/favorite<%=recipes.url%>">Details</a>
    </div>
+
  <% }); %>
 </div>
-
 <script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -21,12 +21,27 @@
 
 
 <script>
- $('.delete-link').on('click', function(e){
-    // e.preventDefault();
-    var deleteUrl =$(this).attr('deleteUrl');
-    $.ajax({
-      method: 'DELETE',
-      url: deleteUrl
-    });
- });
+ // $('.delete-link').on('click', function(e){
+ //     e.preventDefault();
+ //    var deleteUrl =$(this).attr('deleteUrl');
+ //    $.ajax({
+ //      method: 'DELETE',
+ //      url: deleteUrl
+ //    });
+ // });
+
+$('document').ready(function() {
+    $('.delete').on('click', function(e) {
+        e.preventDefault();
+        var toRemove = $(this);
+        var url = toRemove.attr('href');
+        $.ajax({
+            method: 'delete',
+            url: url
+        }).done(function(data) {
+            console.log(data);
+        });
+        window.location = '/favorite'
+    })
+})
 </script>

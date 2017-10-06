@@ -1,0 +1,13 @@
+<h3><%= recipes.name %></h3>
+
+<ul class="title">
+  <li><%= recipes.ingredient %></li>
+
+</ul>
+<form method="DELETE" action="/favorite">
+  <input type="hidden" name="name" value="<%= food.title %>" />
+    <input type="hidden" name="url" value="<%= food.href %>" />
+    <input type="hidden" name="ingredient" value="<%= food.ingredients %>" />
+  <input hidden type="text" id="recipe" name="food" value="<%= food.title %> "/>
+  <input class="btn btn-primary" type="submit" value="remove <%= food.title %> from Favorites!" />
+</form>
