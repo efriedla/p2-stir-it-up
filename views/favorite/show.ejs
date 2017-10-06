@@ -6,11 +6,10 @@
   <li>recipe ingredients</li>
 
 </ul>
-<% recipe.forEach(function(food) { %>
+
 <div class="well">
-    <h2><a href="/favorite/show<%= food.id %>"><%= food.title %></a>
-    <small><%= food.ingredients %></small>
-    <!-- <small><%= item.userId %></small> -->
+    <h2><%= recipes.name %></a></h2>
+    <small><%= recipes.ingredient %></small>
+
 
 </div>
-<% }); %>

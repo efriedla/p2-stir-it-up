@@ -78,56 +78,19 @@ router.post('/', function(req, res) {
       url: req.body.url,
       ingredient: req.body.ingredient
       }
-    }).spread(function(favorite, created) {
-      // Second, get a reference to a tag.
-      db.tag.findOrCreate({
-        where:  {name: req.body.name,
-          url: req.body.url,
-          ingredient: req.body.ingredient
-          }
-      }).spread(function(recipe, created) {
-        // Finally, use the "addModel" method to attach one model to another model.
-        post.addrecipe(recipe).then(function(recipe {
-          console.log(recipe, "added to", favorite);
-        });
-      });
-    });
-  });
-);
+    }).spread(function(recipes){
+        var arr = [];
 
-    // .spread(function(newFavorite) {
-    //     var recipe = [];
-    //     if (req.body.food) {
-    //         recipes = req.body.food.split(",");
-    //     }
-    //     if (favorie.length > 0) {
-    //         async.forEachSeries(recipes, function(recipe, callback) {
-    //             //functions that runs for each recipe
-    //
-    //             // 2. insert one or many categories for this one project
-    //             db.food.findOrCreate({
-    //                 where: { title: food.trim() }
-    //             }).spread(function(recipe, wasCreated) {
-    //                 // add the info into the join table
-    //
-    //                 // 3. populating the join table for each category for that project
-    //                 newFavorite.addRecipe(recipe);
-    //                 callback();
-    //             });
-    //         }, function() {
-    //             //runs when everything is done
-    //             console.log('in the callback!');
-    //             res.redirect("/favorite/recipes");
-    //         });
-    //       } else {
-    //         console.log('in the else');
-    //         res.redirect("/favorite/recipes");
-    //       }
-//       }).catch(function(error) {
-//           res.status(400).render('main/404');
-//           console.log("nooooo");
-//       });
-// });
+          console.log(recipes.name);
+      res.render('favorite/show', {recipes: recipes})
+
+    })
+
+      .catch(function(error) {
+          res.status(400).render('main/404');
+          console.log("nooooo");
+      });
+});
 
 router.get('/favorite', function(req, res){
   res.send("money");

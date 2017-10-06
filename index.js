@@ -63,7 +63,8 @@ app.post('/favorite/recipes', function(req, res) {
   console.log(recipepuppyUrl);
   request(recipepuppyUrl, function(error, response, body){
     var recipes = JSON.parse(body).results;
-    res.render('favorite/recipes', {recipes: recipes});
+     res.render('favorite/recipes', {recipes: recipes});
+    
 
   });
   //will post to database
@@ -95,9 +96,9 @@ app.get('/profile', isLoggedIn, function(req, res) {
 // });
 
 //must make function to show on page, function that grabs userId
-app.get('/favorite', isLoggedIn, function(req, res) {
-  res.render('favorite/show', {recipes: recipes});
-});
+// app.get('/favorite', isLoggedIn, function(req, res) {
+//   res.render('favorite/show', {recipe: recipe});
+// });
 
 app.get('/main/grocery', isLoggedIn, function(req, res) {
   res.render('main/grocery');
