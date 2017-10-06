@@ -1,1 +1,14 @@
+<h2>Favorite Recipes</h2>
 
+
+
+
+
+<% recipes.forEach(function(recipes) { %>
+   <div class="well">
+     <h2><%= recipes.name %></h2>
+     <a class="delete-link" href = "/favorite" deleteUrl="/<%=recipes.name%>">Delete</a>
+     <a class="details-link" href = "<%=recipes.url%>">Details</a>
+   </div>
+ <% }); %>
+</div>
