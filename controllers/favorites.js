@@ -32,8 +32,23 @@ router.get('/', function(req, res) {
     db.favorite.findAll({
     }).then(function(recipes){
       res.render('favorite/show', { recipes: recipes });
-      console.log(recipes)
+      //console.log(recipes)
     });
+});
+
+//deleting from favorites
+router.delete('/', function(req, res){
+  var recipeToDelete = req.params.pokemonName;
+  db.favorite.destroy({
+    where:  {
+      name: req.body.name,
+      url: req.body.url,
+      ingredient: req.body.ingredient
+      }
+  }).then(function(recipes){
+    console.log('deleted', recipeToDelete);
+    res.redirect('favorite/show');
+  });
 });
 
 module.exports = router;
