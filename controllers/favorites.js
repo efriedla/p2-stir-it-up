@@ -79,9 +79,9 @@ router.post('/', function(req, res) {
       ingredient: req.body.ingredient
       }
     }).spread(function(recipes){
-        var arr = [];
+        //var arr = [];
 
-          console.log(recipes.name);
+          console.log(recipes.ingredient);
       res.render('favorite/show', {recipes: recipes})
 
     })
