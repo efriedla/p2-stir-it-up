@@ -53,3 +53,8 @@ Express authentication app using an api + Passport + flash messages + custom mid
 #### Day Four
 
   * adding to the database
+  * problem, the favorites being saved aren't assigned to a direct person
+  * going to leave that alone for now and work on showing all recipes in favs on favorite/showing
+  * once there I will add the ability to edit page
+  * from there I will make sure that each user has a private favorites
+  
