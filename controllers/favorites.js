@@ -39,7 +39,32 @@ router.post('/', isLoggedIn, function(req, res) {
 //         });
 //     });
 // });
+
+
+router.get('/', isLoggedIn, function(req, res) {
+    //get everything from all
+    db.user.find({
+      where: {
+        id: req.user.id
+      }
+    }).then(function(user){
+      user.getFavorites()
+      .then(function(recipes){
+        res.render('favorite/show', { recipes: recipes });
+        //console.log(recipes)
+      });
+
+    });
+});
+
+
+
+
+
 // GET - return a page with favorites
+
+
+
 router.get('/', isLoggedIn, function(req, res) {
     //get everything from all
     db.favorite.findAll({
