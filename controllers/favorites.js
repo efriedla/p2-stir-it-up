@@ -17,8 +17,16 @@ router.post("/", isLoggedIn, function(req, res) {
       user.createFavorite({
         name: req.body.name,
         url: req.body.url,
-        ingredient: req.body.ingredient
+        ingredient: req.body.ingredient,
+        userId: req.body.userId
       })
+      .then(function(recipes){
+                //var arr = [];
+
+                  console.log(recipes.ingredient);
+              res.render('favorite/addrecipe', {recipes: recipes})
+
+            })
   //     db.favorite.findOrCreate({
   //       where:  {
   //         name: req.body.name,
