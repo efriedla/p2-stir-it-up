@@ -41,21 +41,21 @@ router.post('/', isLoggedIn, function(req, res) {
 // });
 
 
-router.get('/', isLoggedIn, function(req, res) {
-    //get everything from all
-    db.user.find({
-      where: {
-        id: req.user.id
-      }
-    }).then(function(user){
-      user.getFavorites()
-      .then(function(recipes){
-        res.render('favorite/show', { recipes: recipes });
-        //console.log(recipes)
-      });
-
-    });
-});
+// router.get('/', isLoggedIn, function(req, res) {
+//     //get everything from all
+//     db.user.find({
+//       where: {
+//         id: req.user.id
+//       }
+//     }).then(function(user){
+//       user.getFavorites()
+//       .then(function(recipes){
+//         res.render('favorite/show', { recipes: recipes });
+//         //console.log(recipes)
+//       });
+//
+//     });
+// });
 
 
 
@@ -64,7 +64,7 @@ router.get('/', isLoggedIn, function(req, res) {
 // GET - return a page with favorites
 
 
-
+//
 router.get('/', isLoggedIn, function(req, res) {
     //get everything from all
     db.favorite.findAll({
@@ -74,7 +74,18 @@ router.get('/', isLoggedIn, function(req, res) {
     });
 });
 
+router.get('/profile', function(req, res) {
+    //get everything from all
+    console.log("profileeeeeeeeee")
+    db.user.find({
+      where: { email: req.body.email },
+    }).then(function(users){
+      res.render('profile', { users: user });
+      console.log(users)
+    });
+});
 
+//deletes from favorites
 router.delete("/:name", function(req, res){
 console.log("DESTROYYYYYYYYYYYYYYYYYYYYYYYY")
   db.favorite.destroy({

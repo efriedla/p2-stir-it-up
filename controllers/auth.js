@@ -19,8 +19,9 @@ router.post('/signup', function(req, res) {
     if (created) {
       // replace the contents of this if statement with the code below
         passport.authenticate('local', {
-          successRedirect: '/',
+          successRedirect: '/profile',
            successFlash: 'Account created and logged in'
+
         })(req, res);
     } else {
       // if not created, the email already exists
@@ -36,19 +37,24 @@ router.post('/signup', function(req, res) {
 
 router.get('/login', function(req, res) {
   res.render('auth/login');
+
 });
 
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
+
+  successRedirect: '/profile',
   failureRedirect: '/auth/login',
   failureFlash: 'Invalid username and/or password',
   successFlash: 'You have logged in'
 }));
+
+
 
 router.get('/logout', function(req, res) {
   req.logout();
   req.flash('success', 'You have logged out');
   res.redirect('/');
 });
+
 
 module.exports = router;

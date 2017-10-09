@@ -6,7 +6,7 @@ Express authentication app using an api + Passport + flash messages + custom mid
 
 ### USER STORY
   * new to cooking and want to start making more meals at home
-  * I have these ingredients what can I make
+
 
 #### Day one
 
@@ -66,3 +66,13 @@ Express authentication app using an api + Passport + flash messages + custom mid
   * must change the favorite and user model from m:m to m:1 because one user can have many favorites not all combined into one.
   * I will have to update my favorite model to include a userId
   * or have the favorite model be most popular and create a new model that will be the users private favorites
+
+#### Over View
+  * [x] Have at least 2 models (more if they make sense) -- ideally a user model and one that represents the   main functional idea for your app
+  * [x] Include sign up/log in functionality, with hashed passwords & an authorization flow
+  * [x] Incorporate at least one API. Examples include Yelp, Tumblr, Facebook, and others on Mashape.
+  * [x] Have complete RESTful routes for at least one of your resources with GET, POST, PUT, and DELETE
+  * [x] Utilize an ORM to create a database table structure and interact with your relationally-stored data
+  * [x] Include wireframes that you designed during the planning process
+  * [] Have semantically clean HTML and CSS
+  * [] Be deployed online and accessible to the public

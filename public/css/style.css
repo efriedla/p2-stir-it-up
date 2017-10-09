@@ -18,11 +18,7 @@ h2{
 .food{
 
   color: #FF2300;
-  /*font-family: 'Playfair Display', serif;
-  text-align: center;
-  margin-top: -1%;
-  text-shadow: 2px 2px lightgrey;
-  font-weight: bold;*/
+
 }
 .sidenav {
     height: 100%;
@@ -67,12 +63,14 @@ h2{
 .text-white{
   color: white;
 }
-.profile, img{
-
-  max-width: 300px;
-  max-height: 300px;
-
-}
+.bg-1 {
+  background-color: #829595;
+  color: #ffffff;
+  }
+ .container-fluid {
+     padding-top: 70px;
+     padding-bottom: 70px;
+ }
 /*test*/
 body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -87,6 +85,7 @@ body {
 
 h1, h2, h3, h4, h5, h6, .text-heading {
   font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-shadow: 2px 2px black;
 }
 ul{
   list-style-type: none;
