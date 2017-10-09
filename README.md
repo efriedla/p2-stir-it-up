@@ -79,4 +79,4 @@ Express authentication app using an api + Passport + flash messages + custom mid
 
 #### Screen shots
 
-![alt text](images/homePage.png)
+![alt text](img/homePage.png)
