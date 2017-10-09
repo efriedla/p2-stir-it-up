@@ -5,28 +5,63 @@ var db = require('../models');
 var isLoggedIn = require('../middleware/isLoggedIn');
 
 
-
-router.post('/', isLoggedIn, function(req, res) {
-  // console.log('in the favorites show post route #######');
-  db.favorite.findOrCreate({
-    where:  {
-      name: req.body.name,
-      url: req.body.url,
-      ingredient: req.body.ingredient
-      }
-    }).spread(function(recipes){
-        //var arr = [];
-
-          console.log(recipes.ingredient);
-      res.render('favorite/addrecipe', {recipes: recipes})
-
-    })
-
-      .catch(function(error) {
-          res.status(400).render('main/404');
-          console.log("nooooo");
-      });
+router.post("/", isLoggedIn, function(req, res) {
+  console.log(req.user.id + "00000000000000000000000");
+  console.log(req.body.name);
+  console.log(req.body.ingredient)
+    db.user.findOne({
+        where: {
+            id: req.user.id
+        },
+    }).then(function(user) {
+      user.createFavorite({
+        name: req.body.name,
+        url: req.body.url,
+        ingredient: req.body.ingredient
+      })
+  //     db.favorite.findOrCreate({
+  //       where:  {
+  //         name: req.body.name,
+  //         url: req.body.url,
+  //         ingredient: req.body.ingredient
+  //         }
+  //       }).spread(function(recipes){
+  //           //var arr = [];
+  //
+  //             console.log(recipes.ingredient);
+  //         res.render('favorite/addrecipe', {recipes: recipes})
+  //
+  //       })
+  //
+          .catch(function(error) {
+              res.status(400).render('main/404');
+              console.log("nooooo");
+          });
+  //  });
+	});
 });
+
+// router.post('/', isLoggedIn, function(req, res) {
+//   // console.log('in the favorites show post route #######');
+//   db.favorite.findOrCreate({
+//     where:  {
+//       name: req.body.name,
+//       url: req.body.url,
+//       ingredient: req.body.ingredient
+//       }
+//     }).spread(function(recipes){
+//         //var arr = [];
+//
+//           console.log(recipes.ingredient);
+//       res.render('favorite/addrecipe', {recipes: recipes})
+//
+//     })
+//
+//       .catch(function(error) {
+//           res.status(400).render('main/404');
+//           console.log("nooooo");
+//       });
+// });
 //user favorites
 // router.get('/', isLoggedIn, function(req, res){
 //     db.user.find({

@@ -3,11 +3,13 @@ module.exports = (sequelize, DataTypes) => {
   var favorite = sequelize.define('favorite', {
     name: DataTypes.STRING,
     ingredient: DataTypes.TEXT,
-    url: DataTypes.STRING
+    url: DataTypes.STRING,
+    userId: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {
-        models.favorite.belongsToMany(models.user, {through: "userfav"})
+        // associations can be defined here
+        models.favorite.belongsTo(models.user)
       }
     }
   });

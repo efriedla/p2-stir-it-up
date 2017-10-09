@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        models.user.belongsToMany(models.favorite, {through: "userfav"})
+        models.user.belongsToMany(models.favorite)
         }
       },
       instanceMethods: {
