@@ -78,4 +78,5 @@ Express authentication app using an api + Passport + flash messages + custom mid
   * [] Be deployed online and accessible to the public
 
 #### Screen shots
-<img src="/img/homePage.png" alt="user" width="300" height="300" > 
+
+![alt tag](http://url/to/homePage.png)
