@@ -76,3 +76,6 @@ Express authentication app using an api + Passport + flash messages + custom mid
   * [x] Include wireframes that you designed during the planning process
   * [] Have semantically clean HTML and CSS
   * [] Be deployed online and accessible to the public
+
+#### Screen shots
+<img src="/img/homePage.png" alt="user" width="300" height="300" > 
