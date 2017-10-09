@@ -67,7 +67,7 @@ Express authentication app using an api + Passport + flash messages + custom mid
   * I will have to update my favorite model to include a userId
   * or have the favorite model be most popular and create a new model that will be the users private favorites
 
-#### Over View
+#### OverView
   * [x] Have at least 2 models (more if they make sense) -- ideally a user model and one that represents the   main functional idea for your app
   * [x] Include sign up/log in functionality, with hashed passwords & an authorization flow
   * [x] Incorporate at least one API. Examples include Yelp, Tumblr, Facebook, and others on Mashape.
