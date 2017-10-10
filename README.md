@@ -75,7 +75,7 @@ Express authentication app using an api + Passport + flash messages + custom mid
   * [x] Utilize an ORM to create a database table structure and interact with your relationally-stored data
   * [x] Include wireframes that you designed during the planning process
   * [x] Have semantically clean HTML and CSS
-  * [] Be deployed online and accessible to the public
+  * [x] Be deployed online and accessible to the public
 
 #### Screen shots
 
