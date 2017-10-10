@@ -49,64 +49,27 @@ router.post("/", isLoggedIn, function(req, res) {
 	});
 });
 
-// router.post('/', isLoggedIn, function(req, res) {
-//   // console.log('in the favorites show post route #######');
-//   db.favorite.findOrCreate({
-//     where:  {
-//       name: req.body.name,
-//       url: req.body.url,
-//       ingredient: req.body.ingredient
-//       }
-//     }).spread(function(recipes){
-//         //var arr = [];
-//
-//           console.log(recipes.ingredient);
-//       res.render('favorite/addrecipe', {recipes: recipes})
-//
-//     })
-//
-//       .catch(function(error) {
-//           res.status(400).render('main/404');
-//           console.log("nooooo");
-//       });
-// });
-//user favorites
-// router.get('/', isLoggedIn, function(req, res){
-//     db.user.find({
-//         where: {
-//             id: req.user.id
-//         }
-//     }).then(function(user){
-//         user.getFavorites().then(function(recipes){
-//             res.render("favorite/show", { recipes: recipes });
-//         });
-//     });
-// });
-
-
-// router.get('/', isLoggedIn, function(req, res) {
-//     //get everything from all
-//     db.user.find({
-//       where: {
-//         id: req.user.id
-//       }
-//     }).then(function(user){
-//       user.getFavorites()
-//       .then(function(recipes){
-//         res.render('favorite/show', { recipes: recipes });
-//         //console.log(recipes)
-//       });
-//
-//     });
-// });
-
 
 
 
 
 // GET - return a page with favorites
-
-
+//
+// router.get('/', isLoggedIn, function(req, res) {
+//     //get everything from all
+//     db.favorite.find({
+//       where: {
+//         id: req.user.id
+//       }
+//     })
+//     .then(function(user){
+//   		user.getFavorites().
+//     then(function(recipes){
+//       res.render('favorite/show', { recipes: recipes });
+//       //console.log(recipes)
+//     });
+//   });
+// });
 //
 router.get('/', isLoggedIn, function(req, res) {
     //get everything from all

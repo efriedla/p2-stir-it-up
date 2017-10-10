@@ -1,12 +1,11 @@
-/*body {
-  background: #F0E6F0;
-  margin: 0;
-  background-image: url("/img/salad-table.jpeg");
-  background-repeat: no-repeat;
+body {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  background: url("/img/happy-plate.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
   background-size: cover;
-  overflow: scroll;
-}*/
-
+  -o-background-size: cover;
+}
 span{
   color: #FF9900;
 
@@ -72,16 +71,8 @@ h2{
      padding-bottom: 70px;
  }
 /*test*/
-body {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  background: url("/img/happy-plate.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
 
 
-}
 
 h1, h2, h3, h4, h5, h6, .text-heading {
   font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
