@@ -49,10 +49,6 @@ router.post("/", isLoggedIn, function(req, res) {
 	});
 });
 
-
-
-
-
 // GET - return a page with favorites
 //
 // router.get('/', isLoggedIn, function(req, res) {
@@ -107,7 +103,5 @@ console.log("DESTROYYYYYYYYYYYYYYYYYYYYYYYY")
 
 })
 });
-
-
 
 module.exports = router;

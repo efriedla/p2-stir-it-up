@@ -49,8 +49,6 @@ app.get('/', function(req, res) {
   res.render('main/index');
 });
 
-
-
 app.get('/main/recipesearch', function(req, res) {
   res.render('main/recipesearch');
 });
@@ -64,7 +62,6 @@ app.post('/favorite/recipes', function(req, res) {
   request(recipepuppyUrl, function(error, response, body){
     var recipes = JSON.parse(body).results;
      res.render('favorite/recipes', {recipes: recipes});
-    
 
   });
   //will post to database
@@ -79,38 +76,16 @@ db.favorite.findOrCreate({
 });
 });
 
-
-
 app.get('/recipes', function(req, res) {
   res.render('main/recipesearch');
 });
-
 
 //will only let the ppl who are signed in see
 app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
 
-// app.get('/recipes', function(req, res) {
-//   res.render('recipes');
-// });
-
-//must make function to show on page, function that grabs userId
-// app.get('/favorite', isLoggedIn, function(req, res) {
-//   res.render('favorite/show', {recipe: recipe});
-// });
-
-app.get('/main/grocery', isLoggedIn, function(req, res) {
-  res.render('main/grocery');
-});
-
-// app.get('/favorite/show', isLoggedIn, function(req, res) {
-//   res.render('favorite/show');
-// });
-
-
 app.use('/auth', require('./controllers/auth'));
-// app.use('/favorites', require('./controllers/favorites'));
 //this is how we separate our routes into separate files
 app.use('/favorite', require('./controllers/favorites'));
 var server = app.listen(process.env.PORT || 3000);
