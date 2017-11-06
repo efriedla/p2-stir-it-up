@@ -67,13 +67,13 @@ app.post('/favorite/recipes', function(req, res) {
   //will post to database
   db.favorite.findAll().then(function(fav){});
 //find or create
-db.favorite.findOrCreate({
-  where: {name: 'Ginger Champagne',
-        },
-        defaults: {url: 'http://allrecipes.com/Recipe/Ginger-Champagne/Detail.aspx'}
-}).spread(function(fav, created) {
-  console.log(fav);
-});
+// db.favorite.findOrCreate({
+//   // where: {name: 'Ginger Champagne',
+//   //       },
+//         // defaults: {url: 'http://allrecipes.com/Recipe/Ginger-Champagne/Detail.aspx'}
+// }).spread(function(fav, created) {
+//   console.log(fav);
+// });
 });
 
 app.get('/recipes', function(req, res) {

@@ -71,14 +71,12 @@ router.get('/', isLoggedIn, function(req, res) {
     //get everything from all
     db.favorite.findAll({
     }).then(function(recipes){
-      res.render('favorite/show', { recipes: recipes });
-      //console.log(recipes)
+
     });
 });
 
 router.get('/profile', function(req, res) {
     //get everything from all
-    console.log("profileeeeeeeeee")
     db.user.find({
       where: { email: req.body.email },
     }).then(function(users){
@@ -89,7 +87,6 @@ router.get('/profile', function(req, res) {
 
 //deletes from favorites
 router.delete("/:name", function(req, res){
-console.log("DESTROYYYYYYYYYYYYYYYYYYYYYYYY")
   db.favorite.destroy({
 
     where: {
